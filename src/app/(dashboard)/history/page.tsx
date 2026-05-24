@@ -19,7 +19,7 @@ export default async function HistoryPage() {
   });
 
   // Map to the client component type interface
-  const formattedJobs = jobs.map((job) => ({
+  const formattedJobs = jobs.map((job: any) => ({
     id: job.id,
     sourceLanguage: job.sourceLanguage,
     targetLanguage: job.targetLanguage,
