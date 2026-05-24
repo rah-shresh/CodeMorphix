@@ -87,7 +87,7 @@ export default async function DashboardPage() {
       count,
       percentage
     };
-  }).sort((a, b) => b.count - a.count);
+  }).sort((a: any, b: any) => b.count - a.count);
 
   const languageColors: Record<string, string> = {
     javascript: "bg-amber-500",
