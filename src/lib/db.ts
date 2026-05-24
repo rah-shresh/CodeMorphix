@@ -1,17 +1,17 @@
-import pkg from "@prisma/client";
-const { PrismaClient } = pkg;
+import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
-import pg from "pg";
+import { Pool } from "@neondatabase/serverless"; // Edge-compatible driver
 
 const prismaClientSingleton = () => {
-  // Use a fallback dummy connection string to allow compiling successfully
-  // during Next.js build steps when DATABASE_URL is not set in the environment.
+  // Build step ke liye fallback dummy URL
   const connectionString =
     process.env.DATABASE_URL || "postgresql://dummy:dummy@localhost:5432/dummy";
   
-  const pool = new pg.Pool({ connectionString });
+  // Neon ka serverless pool use karein jo web sockets ke throw connect hota hai
+  const pool = new Pool({ connectionString });
   const adapter = new PrismaPg(pool);
   
+  // Regular PrismaClient mein adapter pass karein
   return new PrismaClient({ adapter });
 };
 
