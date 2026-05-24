@@ -201,7 +201,7 @@ export default async function DashboardPage() {
                 </div>
               ) : (
                 <div className="space-y-3.5">
-                  {languageStats.map(stat => {
+                  {languageStats.map((stat: any) => {
                     const barColor = languageColors[stat.language] || "bg-zinc-600";
                     return (
                       <div key={stat.language} className="space-y-1.5">
