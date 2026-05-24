@@ -76,7 +76,7 @@ export default async function DashboardPage() {
     }
   });
 
-  const totalTargetCount = rawLanguageStats.reduce((acc, curr) => acc + curr._count.id, 0);
+  const totalTargetCount = rawLanguageStats.reduce((acc: any, curr: any) => acc + curr._count.id, 0);
 
   const languageStats = rawLanguageStats.map(stat => {
     const lang = stat.targetLanguage.toLowerCase();
