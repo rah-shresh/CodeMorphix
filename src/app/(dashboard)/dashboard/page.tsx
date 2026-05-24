@@ -47,7 +47,7 @@ export default async function DashboardPage() {
   });
 
   // Convert dates to ISO strings for safe serialization to Client Component
-  const recentJobs = recentJobsRaw.map(job => ({
+  const recentJobs = recentJobsRaw.map((job: any) => ({
     id: job.id,
     sourceLanguage: job.sourceLanguage,
     targetLanguage: job.targetLanguage,
@@ -57,7 +57,7 @@ export default async function DashboardPage() {
     charCount: job.charCount
   }));
 
-  const savedJobs = savedJobsRaw.map(job => ({
+  const savedJobs = savedJobsRaw.map((job: any) => ({
     id: job.id,
     sourceLanguage: job.sourceLanguage,
     targetLanguage: job.targetLanguage,
