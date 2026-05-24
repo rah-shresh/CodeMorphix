@@ -78,7 +78,7 @@ export default async function DashboardPage() {
 
   const totalTargetCount = rawLanguageStats.reduce((acc: any, curr: any) => acc + curr._count.id, 0);
 
-  const languageStats = rawLanguageStats.map(stat => {
+  const languageStats = rawLanguageStats.map((stat: any) => {
     const lang = stat.targetLanguage.toLowerCase();
     const count = stat._count.id;
     const percentage = totalTargetCount > 0 ? Math.round((count / totalTargetCount) * 100) : 0;
